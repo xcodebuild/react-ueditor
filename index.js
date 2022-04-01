@@ -45,6 +45,11 @@ class Editor extends _react.Component {
 
         self.initEditor();
       }
+      ueEditor.setContent(this.props.value);
+      ueEditor.addListener('contentChange', () => {
+        const content = ueEditor.getContent();
+        self.props.onChange(content);
+      });
     });
   }
 
